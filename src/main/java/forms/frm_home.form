@@ -164,6 +164,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Estado del Empleado"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_stateActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="bt_reportgn">
               <Properties>
@@ -195,6 +198,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reportes Especificos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_reportspActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+	<name>New Data Adapter 1</name>
+	<classpath>C:\Users\josfr\OneDrive\Escritorio\Lotos_CIS_ReportSystem\pluggins\mysql-connector-j-9.0.0.jar</classpath>
+	<driver>com.mysql.jdbc.Driver</driver>
+	<username>root</username>
+	<password>4eZt@wR7yXu#2iS</password>
+	<url>jdbc:mysql://localhost/db_lotos_report</url>
+	<database></database>
+	<savePassword>true</savePassword>
+	<serverAddress></serverAddress>
+</jdbcDataAdapter>

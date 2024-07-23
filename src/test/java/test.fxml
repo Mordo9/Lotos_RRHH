@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ToolBar layoutX="39.0" layoutY="14.0" prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button mnemonicParsing="false" text="Button" />
+        </items>
+      </ToolBar>
+      <Ellipse fill="DODGERBLUE" layoutX="251.0" layoutY="214.0" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
+      <PointLight color="CHARTREUSE" layoutX="189.0" layoutY="142.0" lightOn="true" />
+   </children>
+</Pane>

@@ -1,0 +1,344 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0  -->
+<jasperReport name="ReporteDeEstado" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d6332eb-bb4b-4165-af01-1c8f485caa45" titleNewPage="true">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="ReporteDeEstado" uuid="416ab94a-c379-45cf-824e-4fe630483fd7">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+		<query language="SQL"><![CDATA[SELECT 
+    dg.nombre_completo AS Nombre,
+    dg.numero_identificacion AS DNI,
+    dl.departamento AS Departamento,
+    dl.puesto_trabajo AS Puesto,
+    dl.fecha_contrato AS FechaDeContrato,
+    dl.estado_actividad AS EstadoActividad
+FROM 
+    datos_generales dg
+JOIN 
+    datos_laborales dl
+ON 
+    dg.id_empleado = dl.id_empleado]]></query>
+		<field name="Nombre" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre_completo"/>
+			<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="DNI" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="numero_identificacion"/>
+			<property name="com.jaspersoft.studio.field.label" value="DNI"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="Departamento" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="departamento"/>
+			<property name="com.jaspersoft.studio.field.label" value="Departamento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="Puesto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="puesto_trabajo"/>
+			<property name="com.jaspersoft.studio.field.label" value="Puesto"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="FechaDeContrato" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="fecha_contrato"/>
+			<property name="com.jaspersoft.studio.field.label" value="FechaDeContrato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="EstadoActividad" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="estado_actividad"/>
+			<property name="com.jaspersoft.studio.field.label" value="EstadoActividad"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<group name="Departamento">
+			<expression><![CDATA[$F{Departamento}]]></expression>
+		</group>
+		<group name="EstadoActividad">
+			<expression><![CDATA[$F{EstadoActividad}]]></expression>
+		</group>
+		<group name="Nombre">
+			<expression><![CDATA[$F{Nombre}]]></expression>
+		</group>
+	</dataset>
+	<dataset name="Prueba" uuid="f1593208-8451-402f-9e85-26c311c603ad">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="ReporteGeneral1" uuid="3ede719a-b53a-46aa-8d1b-a118da6b97bd">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="Test2" uuid="043389d0-3f82-4744-92c7-798c4605fa01">
+		<property name="com.jaspersoft.studio.data.sql.tables" value="ZGF0b3NfbGFib3JhbGVzICwxNTQsMTUsY2IxNDhhNTgtNzY0My00OWZjLWE5YzUtMDIyYjE0NjZk&#xa;ZGQ0O2RhdG9zX2dlbmVyYWxlcyAsMTUsMTUsMThlNjAwN2QtYjMzOS00ZWZlLWI0MzEtZmVlMDdk&#xa;ODQyOTUwOw=="/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+		<query language="SQL"><![CDATA[SELECT nombre_completo,
+	fecha_nacimiento,
+	numero_identificacion,
+	departamento,
+	horario_trabajo,
+	estado_actividad
+FROM datos_generales dg
+	JOIN datos_laborales dl ON 
+	 'NULL' = 'NULL']]></query>
+		<field name="nombre_completo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre_completo"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre_completo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="fecha_nacimiento" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="fecha_nacimiento"/>
+			<property name="com.jaspersoft.studio.field.label" value="fecha_nacimiento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="numero_identificacion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="numero_identificacion"/>
+			<property name="com.jaspersoft.studio.field.label" value="numero_identificacion"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="departamento" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="departamento"/>
+			<property name="com.jaspersoft.studio.field.label" value="departamento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="horario_trabajo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="horario_trabajo"/>
+			<property name="com.jaspersoft.studio.field.label" value="horario_trabajo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="estado_actividad" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="estado_actividad"/>
+			<property name="com.jaspersoft.studio.field.label" value="estado_actividad"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<group name="estado_actividad">
+			<expression><![CDATA[$F{estado_actividad}]]></expression>
+		</group>
+		<group name="nombre_completo">
+			<expression><![CDATA[$F{nombre_completo}]]></expression>
+		</group>
+		<group name="horario_trabajo">
+			<expression><![CDATA[$F{horario_trabajo}]]></expression>
+		</group>
+	</dataset>
+	<dataset name="ReporteEstadoGeneral" uuid="cb3c2792-afe6-480a-86b4-60808d4cf28c">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lotos"/>
+		<query language="SQL"><![CDATA[SELECT 
+    dg.nombre_completo,
+    dg.fecha_nacimiento,
+    dg.numero_identificacion,
+    dl.departamento,
+    dl.horario_trabajo,
+    dl.estado_actividad
+FROM 
+    datos_generales dg
+JOIN 
+    datos_laborales dl ON dg.id_empleado = dl.id_empleado]]></query>
+		<field name="nombre_completo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre_completo"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre_completo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="fecha_nacimiento" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="fecha_nacimiento"/>
+			<property name="com.jaspersoft.studio.field.label" value="fecha_nacimiento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="numero_identificacion" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="numero_identificacion"/>
+			<property name="com.jaspersoft.studio.field.label" value="numero_identificacion"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+		</field>
+		<field name="departamento" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="departamento"/>
+			<property name="com.jaspersoft.studio.field.label" value="departamento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="horario_trabajo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="horario_trabajo"/>
+			<property name="com.jaspersoft.studio.field.label" value="horario_trabajo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<field name="estado_actividad" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="estado_actividad"/>
+			<property name="com.jaspersoft.studio.field.label" value="estado_actividad"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="datos_laborales"/>
+		</field>
+		<group name="departamento">
+			<expression><![CDATA[$F{departamento}]]></expression>
+		</group>
+	</dataset>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<title height="126" splitType="Stretch">
+		<element kind="staticText" uuid="028a2c32-a895-48f3-be86-d2ca41d5a9b1" x="70" y="89" width="90" height="20" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[Correo Electrónico:]]></text>
+		</element>
+		<element kind="staticText" uuid="10aea00b-ab29-48e0-a7ac-c4b4f225ec86" x="70" y="3" width="50" height="16" vTextAlign="Middle">
+			<text><![CDATA[Empresa:]]></text>
+		</element>
+		<element kind="staticText" uuid="91a42ad5-4bcd-4b67-b15e-71d13e12783c" x="70" y="29" width="30" height="16" vTextAlign="Middle">
+			<text><![CDATA[RUC:]]></text>
+		</element>
+		<element kind="staticText" uuid="ff422f13-c29d-4717-b2c3-c62068ba2af6" x="70" y="60" width="50" height="16" vTextAlign="Middle">
+			<text><![CDATA[Dirección:]]></text>
+		</element>
+		<element kind="staticText" uuid="33021ef9-4fa8-48b1-baef-029b4bfaaf13" x="120" y="60" width="150" height="16" vTextAlign="Middle">
+			<text><![CDATA[122, Calle José Bernardo Alcedo]]></text>
+		</element>
+		<element kind="staticText" uuid="9651890b-6772-4e47-9852-a7e31d0d5ecf" x="160" y="90" width="100" height="18" vTextAlign="Middle">
+			<text><![CDATA[lotosstor@gmail.com]]></text>
+		</element>
+		<element kind="staticText" uuid="e38e9dcd-a400-429b-a7f6-e4c3449336de" x="100" y="30" width="100" height="15" vTextAlign="Middle">
+			<text><![CDATA[12345678911]]></text>
+		</element>
+		<element kind="staticText" uuid="892003ef-e798-4e7c-8ff7-d4ee956d1339" x="120" y="3" width="80" height="16" vTextAlign="Middle">
+			<text><![CDATA[Lotos S.A.C]]></text>
+		</element>
+		<element kind="staticText" uuid="8c3265ed-fcf3-430e-a471-95b67a570096" x="300" y="3" width="100" height="30" vTextAlign="Middle">
+			<text><![CDATA[Fecha y Hora de Impresión:]]></text>
+		</element>
+		<element kind="staticText" uuid="8590a6cb-3896-4c03-a587-6caab4663afc" x="300" y="60" width="50" height="16">
+			<text><![CDATA[Teléfono:]]></text>
+		</element>
+		<element kind="staticText" uuid="c9670311-5c23-4a34-b334-c742b93c16e7" x="350" y="60" width="100" height="16" vTextAlign="Middle">
+			<text><![CDATA[942008986]]></text>
+		</element>
+		<element kind="image" uuid="4b387f89-c5de-4a45-abe3-31178060f332" x="0" y="0" width="70" height="64">
+			<expression><![CDATA["C:/Users/josfr/OneDrive/Escritorio/Lotos/lotos.jpeg"]]></expression>
+		</element>
+		<element kind="textField" uuid="034c95b7-4442-40df-ab9c-a31530bb2b74" x="400" y="3" width="150" height="30" pattern="MMMMM dd, yyyy" vTextAlign="Middle">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="line" uuid="922877d2-c6d6-405c-8977-9753a983563e" x="0" y="125" width="555" height="1"/>
+	</title>
+	<pageHeader height="35" splitType="Stretch">
+		<element kind="staticText" uuid="990698ec-26bb-4721-9de2-b4ab42957ee9" x="102" y="2" width="350" height="30" fontSize="15.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Reporte de Estado de Empleados de Lotos S.A.C]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</element>
+	</pageHeader>
+	<columnHeader height="48" splitType="Stretch">
+		<element kind="staticText" uuid="81a55143-ac48-4d94-8268-38643a91ebe8" x="97" y="15" width="360" height="30" fontSize="14.0" vTextAlign="Middle">
+			<text><![CDATA[Datos generales de todos los empleados de Lotos S.A.C]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<element kind="component" uuid="66ae8194-b128-42e2-9eee-bbd97a770a9a" x="137" y="40" width="200" height="200">
+				<component kind="table">
+					<datasetRun uuid="be109c66-ce89-4fd7-8930-6b2688c73699" subDataset="ReporteEstadoGeneral">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<column kind="single" uuid="06113bc0-42b6-447c-a2f3-e2774e65a3b7" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="2c026383-0ea9-4f77-b6c4-b3712cbfd396" x="0" y="0" width="33" height="30">
+								<text><![CDATA[nombre_completo]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="fbc2bbfb-b10f-42e3-bc1a-586658f711b7" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{nombre_completo}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+					<column kind="single" uuid="693461cc-596c-435f-b8b2-078dea6362a8" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="41805769-8ff7-4606-9287-6d871ac4d478" x="0" y="0" width="33" height="30">
+								<text><![CDATA[fecha_nacimiento]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="d9c761cf-dc6b-4f6c-8504-dc8a474ea703" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{fecha_nacimiento}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+					<column kind="single" uuid="98a5d876-2ab4-4720-a3f7-5177e415b449" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="131448c8-4d40-4b27-9d3a-e6b40298f80f" x="0" y="0" width="33" height="30">
+								<text><![CDATA[numero_identificacion]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="439dd8da-9913-4dfb-b45f-7e1881a237a4" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{numero_identificacion}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+					<column kind="single" uuid="b0f1ed87-61e3-4808-a3d9-bde7682245bd" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="c5456aab-2571-4796-993d-abbc980aa5fe" x="0" y="0" width="33" height="30">
+								<text><![CDATA[departamento]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="fed42bd4-987d-4527-be27-f817a4a7e58f" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{departamento}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+					<column kind="single" uuid="49aaca67-5c87-462b-ab0a-c4610bba0ad2" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="59bfd657-77b7-484e-9fb3-5d1c64a0244c" x="0" y="0" width="33" height="30">
+								<text><![CDATA[horario_trabajo]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="41487ad4-5e6a-4aa4-9e2e-8328006fdcf7" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{horario_trabajo}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+					<column kind="single" uuid="7dc34e65-1356-4f41-ada8-a019ea887c60" width="33">
+						<columnHeader height="30" style="Table_CH">
+							<element kind="staticText" uuid="9abc55ec-754f-49a0-be7c-f9ab9056f37c" x="0" y="0" width="33" height="30">
+								<text><![CDATA[estado_actividad]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="149809eb-e703-43b2-ac5f-29647bc66005" x="0" y="0" width="33" height="30">
+								<expression><![CDATA[$F{estado_actividad}]]></expression>
+							</element>
+						</detailCell>
+					</column>
+				</component>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+				<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+				<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="54" splitType="Stretch">
+		<element kind="textField" uuid="4f956837-170d-4b5a-aa5d-b1a1fd4bc632" x="227" y="12" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
