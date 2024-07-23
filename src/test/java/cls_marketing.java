@@ -1,14 +1,8 @@
 package clases;
 
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class cls_marketing {
+/**public class cls_marketing {
 
     public static void main(String[] args) {
         int result = generateReportForDepartment("MARKETING"); // Cambia 'MARKETING' por 'RRHH' o 'VENTAS' según sea necesario

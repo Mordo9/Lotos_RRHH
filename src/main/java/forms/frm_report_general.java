@@ -1,9 +1,14 @@
 package forms;
 
+import clases.ReportGenerator2;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class frm_report_general extends javax.swing.JInternalFrame {
 
@@ -17,7 +22,7 @@ public class frm_report_general extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_departamento = new javax.swing.JComboBox<>();
         bt_generar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -30,11 +35,11 @@ public class frm_report_general extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Reportes Generales");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UN DEPARTAMENTO", "RRHH", "MARKETING", "VENTAS" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb_departamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cb_departamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UN DEPARTAMENTO", "RRHH", "MARKETING", "VENTAS" }));
+        cb_departamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cb_departamentoActionPerformed(evt);
             }
         });
 
@@ -76,7 +81,7 @@ public class frm_report_general extends javax.swing.JInternalFrame {
                 .addGap(0, 349, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(358, 358, 358)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_departamento, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -85,7 +90,7 @@ public class frm_report_general extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_departamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bt_generar)
                 .addGap(18, 18, 18)
@@ -98,18 +103,73 @@ public class frm_report_general extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cb_departamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_departamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cb_departamentoActionPerformed
 
     private void bt_generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_generarActionPerformed
-        // TODO add your handling code here:
+        // Obtener el departamento seleccionado
+        String selectedDepartment = cb_departamento.getSelectedItem().toString().toUpperCase();
+
+        // Crear una instancia de ReportGenerator2
+        ReportGenerator2 reportGenerator2 = new ReportGenerator2();
+
+        JasperPrint jasperPrint = null;
+
+        try {
+            // Seleccionar el archivo .jasper basado en el departamento seleccionado
+            String jasperFileName = null;
+            switch (selectedDepartment) {
+                case "RRHH":
+                    jasperFileName = "ReportGeneralRRHH.jasper";
+                    break;
+                case "MARKETING":
+                    jasperFileName = "ReportGeneralMARKETING.jasper";
+                    break;
+                case "VENTAS":
+                    jasperFileName = "ReportGeneralVENTAS.jasper";
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Departamento no reconocido.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+            }
+
+            // Generar el reporte
+            jasperPrint = reportGenerator2.generateReport(jasperFileName);
+
+            // Si el informe se generó correctamente, exportarlo a PDF
+            if (jasperPrint != null) {
+                String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+                String outputFilePath = "pdf/" + selectedDepartment.toLowerCase() + "_report_" + timestamp + ".pdf";
+                File outputFile = new File(outputFilePath);
+
+                // Asegúrate de que el directorio exista
+                File parentDir = outputFile.getParentFile();
+                if (!parentDir.exists() && !parentDir.mkdirs()) {
+                    JOptionPane.showMessageDialog(this, "No se pudo crear el directorio para el reporte.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Exportar el informe a PDF
+                int result = reportGenerator2.exportToPdf(jasperPrint, outputFilePath);
+                if (result == 0) {
+                    JOptionPane.showMessageDialog(this, "Reporte generado con éxito en: " + outputFilePath, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al exportar el informe a PDF.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo generar el informe.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el informe: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_bt_generarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_generar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cb_departamento;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
